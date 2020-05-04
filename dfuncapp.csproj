@@ -6,6 +6,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.31" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="3.0.5" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Twilio" Version="3.0.0" />
+    <PackageReference Include="Twilio" Version="5.40.0" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
