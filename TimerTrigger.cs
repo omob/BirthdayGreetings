@@ -14,7 +14,7 @@ namespace DeevCorp.Function
     {
         [FunctionName("TimerTrigger")]
         public static void Run(
-            [TimerTrigger("0 */5 * * * *")]
+            [TimerTrigger("0 0 0 * * *")]
             TimerInfo myTimer,
             [CosmosDB(
                 Constants.COSMOS_DB_DATABASE_NAME,
@@ -65,7 +65,7 @@ namespace DeevCorp.Function
             });
         }
 
-        public static void SendSMS(string text, string recipient, bool isSending = false)
+        public static void SendSMS(string text, string recipient, bool isSending = true)
         {
             if (isSending)
             {

@@ -66,7 +66,8 @@ namespace DeevCorp.Function
             };
 
             await users.AddAsync(userObject);
-            return (ActionResult)new OkObjectResult(usersInDb);
+            return (ActionResult)new OkResult();
+
         }
     }
 }
