@@ -53,7 +53,7 @@ namespace DeevCorp.Function
 
                     try
                     {
-                        SendSMS(message, (string)user.phoneNumber, false);
+                        SendSMS(message, (string)user.phoneNumber, true);
 
                         log.LogInformation($"Sent message to {user.name.firstName}");
                     }
