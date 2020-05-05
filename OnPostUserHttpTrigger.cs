@@ -28,8 +28,9 @@ namespace DeevCorp.Function
             [CosmosDB(
                 Constants.COSMOS_DB_DATABASE_NAME,
                 Constants.COSMOS_DB_CONTAINER_NAME,
-                ConnectionStringSetting = "CosmosDBConnection")
+                ConnectionStringSetting = "CosmosDBConnection", CreateIfNotExists = true)
             ]
+
             IEnumerable<dynamic> usersInDb,
             ILogger log)
         {
@@ -45,6 +46,11 @@ namespace DeevCorp.Function
             if (userExists != null)
                 return new BadRequestObjectResult("A user with same phone number already exist");
 
+
+            log.LogInformation(userInfo.ToString());
+
+            var birthdate = userInfo.BirthDate.ToString();
+
             dynamic userObject = new
             {
                 name = new
@@ -52,7 +58,7 @@ namespace DeevCorp.Function
                     firstName = userInfo.FirstName,
                     lastName = userInfo.LastName
                 },
-                birthdate = userInfo.BirthDate,
+                birthdate = birthdate,
                 messages = new List<string> {
                     userInfo.Message
                 },
@@ -60,7 +66,7 @@ namespace DeevCorp.Function
             };
 
             await users.AddAsync(userObject);
-            return (ActionResult)new OkResult();
+            return (ActionResult)new OkObjectResult(usersInDb);
         }
     }
 }

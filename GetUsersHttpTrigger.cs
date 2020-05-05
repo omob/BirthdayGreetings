@@ -24,7 +24,7 @@ namespace DeevCorp.Function
                 Constants.COSMOS_DB_CONTAINER_NAME,
                 ConnectionStringSetting = "CosmosDBConnection")
             ]
-            IEnumerable<User> users,
+            IEnumerable<dynamic> users,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");

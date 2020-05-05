@@ -12,7 +12,7 @@ public class User
 
     public override string ToString()
     {
-        return String.Format($"First Name: {FirstName}, Last Name: {LastName}, Phone Number: {PhoneNumber}");
+        return String.Format($"First Name: {FirstName}, Last Name: {LastName}, Phone Number: {PhoneNumber}, Birthdate: {BirthDate}");
     }
 
 }
